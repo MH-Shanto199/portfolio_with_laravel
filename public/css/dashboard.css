@@ -11263,3 +11263,9 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+.dotdoc{ 
+    background: #e9ebf0;
+    padding: 7px;
+    border-radius: 5px;
+}
