@@ -19,6 +19,7 @@ Route::get('/', [PageController::class, 'index'])->name('home');
 
 
 Route::get('admin/dashbord', [PageController::class, 'dashbord'])->name('admin.dashbord');
+Route::get('admin', [PageController::class, 'dashbord']);
 Route::get('admin/main', [PageController::class, 'main'])->name('admin.main');
 Route::get('admin/service', [PageController::class, 'service'])->name('admin.service');
 Route::get('admin/portfolio', [PageController::class, 'portfolio'])->name('admin.portfolio');
