@@ -16,11 +16,6 @@ class PageController extends Controller
         return view('pages.dashbord');
     }
 
-    public function main(){
-
-        return view('pages.main');
-    }
-
     public function service(){
 
         return view('pages.service');

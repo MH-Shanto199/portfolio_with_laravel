@@ -86,9 +86,11 @@
                 </nav>
             </div>
             <div id="layoutSidenav_content">
-
-
-                    
+            
+            <div class="container">
+                @include('alart.messages')
+            </div>
+              
             @yield('body')
 
 
