@@ -1,6 +1,8 @@
 <?php
 
+
 use App\Http\Controllers\MainPage;
+use App\Http\Controllers\ServicePagesController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +32,11 @@ Route::get('admin/contact', [PageController::class, 'contact'])->name('admin.con
 Route::get('admin/main', [MainPage::class, 'index'])->name('admin.main');
 Route::put('admin/main', [MainPage::class, 'update'])->name('admin.main.update');
 // Main Routs
+
+// Services Routs
+Route::get('admin/service/create', [ServicePagesController::class, 'create'])->name('admin.service.create');
+Route::post('admin/service/create', [ServicePagesController::class, 'store'])->name('admin.service.store');
+// Services Routs
 
 Auth::routes();
 

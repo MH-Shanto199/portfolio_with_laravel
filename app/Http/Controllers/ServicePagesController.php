@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\service;
 use Illuminate\Http\Request;
-use App\Models\Main;
 
-
-class MainPage extends Controller
+class ServicePagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class MainPage extends Controller
      */
     public function index()
     {
-        $main = Main::first();
-        return view('pages.main', compact('main'));
+        //
     }
 
     /**
@@ -26,7 +24,7 @@ class MainPage extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.services.create');
     }
 
     /**
@@ -37,7 +35,21 @@ class MainPage extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'icon'        => 'required|string',
+            'title'       => 'required|string',
+            'description' => 'required|string'
+        ]);
+
+        $service              = new service();
+        $service->icon        = $request->icon;
+        $service->title       = $request->title;
+        $service->description = $request->description;
+
+        $service->save();
+
+        return redirect()->route('admin.service.create')->with('success', 'New service created successfully');
+
     }
 
     /**
@@ -69,35 +81,9 @@ class MainPage extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        // dd($request);
-        $this->validate( $request, [
-            'title'     => 'required|string',
-            'sub_title' => 'required|string'
-        ]);
-
-        $main =  Main::first();
-        $main->title = $request->title;
-        $main->sub_title = $request->sub_title;
-
-        if ($request->hasFile('bg_image')) {
-            $img_file = $request->file('bg_image');
-            $img_file->storeAs('public/img/', 'bg_image.'.$img_file->getClientOriginalExtension());
-            $main->bg_image = 'storage/img/bg_image.'. $img_file->getClientOriginalExtension();
-        }
-
-        if ($request->hasFile('resume')) {
-            $pdf_file = $request->file('resume');
-            $pdf_file->storeAs('public/pdf/', 'resume.'. $pdf_file->getClientOriginalExtension());
-            $main->resume = 'storage/pdf/resume.'. $pdf_file->getClientOriginalExtension();
-        }
-
-        $main->save();
-
-        return redirect()->route('admin.main')->with('success', 'Main Page updated successfully');
-
-        
+        //
     }
 
     /**
