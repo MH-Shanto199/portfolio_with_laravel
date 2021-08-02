@@ -36,6 +36,7 @@ Route::put('admin/main', [MainPage::class, 'update'])->name('admin.main.update')
 // Services Routs
 Route::get('admin/service/create', [ServicePagesController::class, 'create'])->name('admin.service.create');
 Route::post('admin/service/create', [ServicePagesController::class, 'store'])->name('admin.service.store');
+Route::get('admin/service/list', [ServicePagesController::class, 'list'])->name('admin.service.list');
 // Services Routs
 
 Auth::routes();

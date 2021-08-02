@@ -12,9 +12,10 @@ class ServicePagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function list()
     {
-        //
+        $service = service::all();
+        return view('pages.services.list', compact('service'));
     }
 
     /**

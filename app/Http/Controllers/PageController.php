@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Main;
+use App\Models\service;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -10,7 +11,8 @@ class PageController extends Controller
     public function index()
     {
         $main = Main::first();
-        return view('pages.index', compact('main'));
+        $service = service::all();
+        return view('pages.index', compact('main', 'service'));
     }
 
     public function dashbord()

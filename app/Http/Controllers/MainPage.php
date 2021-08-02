@@ -82,6 +82,7 @@ class MainPage extends Controller
         $main->sub_title = $request->sub_title;
 
         if ($request->hasFile('bg_image')) {
+            dd($request);
             $img_file = $request->file('bg_image');
             $img_file->storeAs('public/img/', 'bg_image.'.$img_file->getClientOriginalExtension());
             $main->bg_image = 'storage/img/bg_image.'. $img_file->getClientOriginalExtension();
@@ -92,6 +93,9 @@ class MainPage extends Controller
             $pdf_file->storeAs('public/pdf/', 'resume.'. $pdf_file->getClientOriginalExtension());
             $main->resume = 'storage/pdf/resume.'. $pdf_file->getClientOriginalExtension();
         }
+
+        // dd($request);
+
 
         $main->save();
 

@@ -8,7 +8,7 @@
                     </li>
                     <li class="breadcrumb-item active">Main</li>
                 </ol>
-                <form action="{{ route('admin.main.update') }}" method="post"             enctype="multipart/form-data">
+                <form action="{{ route('admin.main.update') }}" method="post"  enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">
