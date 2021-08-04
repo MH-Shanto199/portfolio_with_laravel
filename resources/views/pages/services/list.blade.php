@@ -25,10 +25,14 @@
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $item->icon }}</td>
                                 <td>{{ $item->title }}</td>
-                                <td>{{ $item->description }}</td>
+                                <td>{{ Str::limit(strip_tags($item->description), 200)  }}</td>
                                 <td>
-                                    <a href="" class="btn btn-primary w-75 mb-2">Edit</a>
-                                    <a href="" class="btn btn-primary w-75">delete</a>
+                                    <a href="{{ route('admin.service.edit',$item->id) }}" class="btn btn-primary w-75 mb-2">Edit</a>
+                                    <form action="{{ route('admin.service.destroy', $item->id) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" name="submit" class="btn btn-danger w-75" value="delete">
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

@@ -46,12 +46,15 @@
                                 Dashboard
                             </a>
                             
+                            {{-- admin Main section --}}
                             <a class="nav-link" href="{{ route('admin.main') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                                 Main
                             </a>
+                            {{-- admin Main section --}}
                             
-                            <a class="nav-link" href="{{ route('admin.service') }}" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            {{-- admin Service section --}}
+                            <a class="nav-link" href="" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tasks"></i></div>
                                 Services
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -62,11 +65,23 @@
                                     <a class="nav-link" href="{{ route('admin.service.list') }}">List</a>
                                 </nav>
                             </div>
+                            {{-- admin Service section --}}
 
-                            <a class="nav-link" href="{{ route('admin.portfolio') }}">
+                            {{-- admin Portfolio section --}}
+                            <a class="nav-link" href="" data-bs-toggle="collapse" data-bs-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts2">
                                 <div class="sb-nav-link-icon"><i class="fas fa-images"></i></div>
                                 Portfolio
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="{{ route('admin.portfolio.create') }}">Creat</a>
+                                    <a class="nav-link" href="{{ route('admin.portfolio.list') }}">List</a>
+                                </nav>
+                            </div>
+                            {{-- admin Portfolio section --}}
+
+
                             <a class="nav-link" href="{{ route('admin.about') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 About
