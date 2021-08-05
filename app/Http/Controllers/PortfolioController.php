@@ -93,7 +93,8 @@ class PortfolioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $portfolio = Portfolios::findOrFail($id);
+        return view('pages.portfolio.edit', compact('portfolio'));
     }
 
     /**
@@ -105,7 +106,38 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|string',
+            'sub_title' => 'required|string',
+            'big_image' => 'nullable|image',
+            'small_image' => 'nullable|image',
+            'description' => 'required|string',
+            'clint' => 'required|string',
+            'category' => 'required|string',
+        ]);
+
+        $portfolio = Portfolios::findOrFail($id);
+        $portfolio->title = $request->title;
+        $portfolio->sub_title = $request->sub_title;
+        $portfolio->description = $request->description;
+        $portfolio->clint = $request->clint;
+        $portfolio->category = $request->category;
+
+        if ( $request->file('big_image')) {
+            $big_file = $request->file('big_image'); 
+            Storage::putFile('public/img', $big_file); 
+            $portfolio->big_image = "storage/img/".$big_file->hashName();
+        }
+
+        if ($request->file('small_image')) {
+            $small_file = $request->file('small_image'); 
+            Storage::putFile('public/img', $small_file); 
+            $portfolio->small_image = "storage/img/".$small_file->hashName();
+        }
+
+        $portfolio->save();
+
+        return redirect()->route('admin.portfolio.list')->with('success','Portfoio Updated Successfully');
     }
 
     /**
@@ -116,6 +148,11 @@ class PortfolioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Portfolios::findOrFail($id);
+        @unlink(public_path($item->big_image));
+        @unlink(public_path($item->small_image));
+        $item->delete();
+
+        return redirect()->route('admin.portfolio.list')->with('success','Portfoio Deleted Successfully');
     }
 }

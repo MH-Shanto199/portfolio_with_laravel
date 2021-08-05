@@ -13,13 +13,13 @@
                 @method('PUT')
                 <div class="row">
                     <div class="col-md-3 mt-3 ">
-                        <h4>Thumbnail image:</h4>
-                        <img src="https://via.placeholder.com/300.png?text=Thumbnail+image" alt="Thumbnail image" class="img-thumbnail">
+                        <h4>Cover image:</h4>
+                        <img src="https://via.placeholder.com/300.png?text=Cover+image" alt="Cover image" class="img-thumbnail">
                         <input class="mt-2" type="file" name="big_image" id="big_img">
                     </div>
                     <div class="col-md-3 mt-3">
-                        <h4>Cover Image:</h4>
-                        <img src="https://via.placeholder.com/200.png?text=Cover+image" alt="Cover image" class="img-thumbnail">
+                        <h4>Thumbnail Image:</h4>
+                        <img src="https://via.placeholder.com/200.png?text=Thumbnail+image" alt="Thumbnail image" class="img-thumbnail">
                         <input class="mt-2" type="file" name="small_image" id="big_img">
                     </div>
                     <div class="col-md-6">

@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\AboutPagesController;
 use App\Http\Controllers\MainPage;
 use App\Http\Controllers\ServicePagesController;
 use App\Http\Controllers\PageController;
@@ -48,7 +48,20 @@ use Illuminate\Support\Facades\Route;
     Route::get('admin/portfolios/create', [PortfolioController::class, 'create'])->name('admin.portfolio.create');
     Route::get('admin/portfolios/list',  [PortfolioController::class, 'list'])->name('admin.portfolio.list');
     Route::put('admin/portfolios/store',  [PortfolioController::class, 'store'])->name('admin.portfolio.store');
+    Route::get('admin/portfolios/edit/{id}',  [PortfolioController::class, 'edit'])->name('admin.portfolio.edit');
+    Route::put('admin/portfolios/update/{id}',  [PortfolioController::class, 'update'])->name('admin.portfolio.update');
+    Route::delete('admin/portfolios/destroy/{id}', [PortfolioController::class, 'destroy'])->name('admin.portfolio.destroy');
 // Portfolio route
+
+// About route
+    Route::get('admin/about/create', [AboutPagesController::class, 'create'])->name('admin.about.create');
+    Route::get('admin/about/list', [AboutPagesController::class, 'list'])->name('admin.about.list');
+    Route::put('admin/about/store', [AboutPagesController::class, 'store'])->name('admin.about.store');
+    Route::get('admin/about/edit/{id}', [AboutPagesController::class, 'edit'])->name('admin.about.edit');
+    Route::put('admin/about/update/{id}',  [AboutPagesController::class, 'update'])->name('admin.about.update');
+    Route::delete('admin/about/destroy/{id}', [AboutPagesController::class, 'destroy'])->name('admin.about.destroy');
+// About route
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

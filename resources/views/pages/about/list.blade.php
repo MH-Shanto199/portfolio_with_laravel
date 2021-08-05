@@ -12,35 +12,28 @@
                 <thead>
                   <tr class="text-justify">
                     <th scope="col">S/R</th>
+                    <th scope="col">Date/Time</th>
                     <th scope="col">Title</th>
-                    <th scope="col">Sub Title</th>
                     <th scope="col">Description</th>
-                    <th scope="col">Big Image</th>
-                    <th scope="col">Small Image</th>
-                    <th scope="col">Claint</th>
-                    <th scope="col">Category</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                    @if ($portfolio->count())
-                        @foreach ($portfolio as $item)
+
+                    @if ($abouts->count())
+                        @foreach ($abouts as $item)
                             <tr class="text-justify">
                                 <th scope="row">{{ $loop->iteration }}</th>
+                                <td>{{ $item->date }}</td>
                                 <td>{{ $item->title }}</td>
-                                <td>{{ $item->sub_title }}</td>
-                                <td>{{ Str::limit(strip_tags($item->description), 80)  }}</td>
+                                <td>{{ Str::limit(strip_tags($item->description), 200)  }}</td>
                                 <td>
-                                    <img style="max-width: 10vw" src="{{ asset($item->big_image) }}" alt="Big Image">
+                                    <img style="max-width: 15vh" src="{{ asset($item->image) }}" alt="Big Image">
                                 </td>
                                 <td>
-                                    <img style="max-width: 10vw" src="{{ asset($item->small_image) }}" alt="Big Image">
-                                </td>
-                                <td>{{ $item->clint }}</td>
-                                <td>{{ $item->category }}</td>
-                                <td>
-                                    <a href="{{ route('admin.portfolio.edit',$item->id) }}" class="btn btn-primary w-100 mb-2">Edit</a>
-                                    <form action="{{ route('admin.portfolio.destroy', $item->id) }}" method="post">
+                                    <a href="{{ route('admin.about.edit',$item->id) }}" class="btn btn-primary w-100 mb-2">Edit</a>
+                                    <form action="{{ route('admin.about.destroy',$item->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <input type="submit" name="submit" class="btn btn-danger" value="delete">
@@ -48,8 +41,8 @@
                                 </td>
                             </tr>
                         @endforeach
-
                     @endif
+
                 </tbody>
               </table>
         </div>
