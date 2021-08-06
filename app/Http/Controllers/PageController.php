@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Main;
 use App\Models\Portfolios;
 use App\Models\service;
@@ -11,10 +12,11 @@ class PageController extends Controller
 {
     public function index()
     {
-        $main = Main::first();
-        $service = service::all();
+        $main       = Main::first();
+        $service    = service::all();
         $portfolios = Portfolios::all();
-        return view('pages.index', compact('main', 'service', 'portfolios'));
+        $abouts     = About::all();
+        return view('pages.index', compact('main', 'service', 'portfolios', 'abouts'));
     }
 
     public function dashbord()

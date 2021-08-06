@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutPagesController;
+use App\Http\Controllers\ContactPageController;
 use App\Http\Controllers\MainPage;
 use App\Http\Controllers\ServicePagesController;
 use App\Http\Controllers\PageController;
@@ -61,6 +62,10 @@ use Illuminate\Support\Facades\Route;
     Route::put('admin/about/update/{id}',  [AboutPagesController::class, 'update'])->name('admin.about.update');
     Route::delete('admin/about/destroy/{id}', [AboutPagesController::class, 'destroy'])->name('admin.about.destroy');
 // About route
+
+// Contact route
+Route::post('admin/contact', [ContactPageController::class, 'store'])->name('contact.store');
+// Contact route
 
 Auth::routes();
 

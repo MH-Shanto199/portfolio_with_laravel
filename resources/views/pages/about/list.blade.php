@@ -2,11 +2,11 @@
 @section('body')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Portfolio List</h1>
+            <h1 class="mt-4">About List</h1>
             <ol class="breadcrumb mb-4 dotdoc">
-                <li class="breadcrumb-item"><a href="{{ route('admin.portfolio.list') }}">Portfolio List</a>
+                <li class="breadcrumb-item"><a href="{{ route('admin.about.create') }}">Create About</a>
                 </li>
-                <li class="breadcrumb-item active">Portfolio List</li>
+                <li class="breadcrumb-item active">About List</li>
             </ol>
             <table class="table table-hover">
                 <thead>

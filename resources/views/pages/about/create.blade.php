@@ -2,11 +2,11 @@
 @section('body')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Create Portfolio</h1>
+            <h1 class="mt-4">Create About</h1>
             <ol class="breadcrumb mb-4 dotdoc">
-                <li class="breadcrumb-item"><a href="{{ route('admin.portfolio.create') }}">Portfolio</a>
+                <li class="breadcrumb-item"><a href="{{ route('admin.about.create') }}">About</a>
                 </li>
-                <li class="breadcrumb-item active">Portfolio</li>
+                <li class="breadcrumb-item active">About</li>
             </ol>
             <form action="{{ route('admin.about.store') }}" method="post"  enctype="multipart/form-data">
                 @csrf
